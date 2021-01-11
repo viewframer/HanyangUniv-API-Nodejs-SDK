@@ -4,7 +4,7 @@ Hanyang University API - Node.js SDK
 - 한양대학교 Open API '사용자인증'기능을 Node.js에서 호출하는 비공식 SDK입니다.
 
 - 한양대학교 API 개발자센터에서 Node.js SDK를 제공하지 않는 관계로,
-  공식제공되는 PHP SDK를 참고하여 옮겨 작성하였습니다.
+  공식제공되는 PHP버전을 옮겨 작성하였습니다.
 - 사용승인절차 등 API 관련 정보는 '한양대학교API 개발자센터'를 참조해 주세요.
   - 학생개발자의 경우, 사용승인시 부서책임자 또는 지도교수의 서명이 필요합니다.
   - https://api.hanyang.ac.kr/
