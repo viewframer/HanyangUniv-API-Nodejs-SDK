@@ -83,7 +83,7 @@ hanyangApiRun(receivedAuthCodeExample)
    자동으로 진행되며, 인증에 모두 성공하면 사용자 정보가 Return됩니다.
  
 * 로그인폼 Redirect URL 예제
-  * https://api.hanyang.ac.kr/oauth/authorize?client_id=`당신의클라이언트아이디`&response_type=code&redirect_uri=`당신의리다이렉트주소`&scope=`10`
+  * `https://api.hanyang.ac.kr/oauth/authorize?client_id=당신의클라이언트아이디&response_type=code&redirect_uri=당신의리다이렉트주소&scope=10`
     * scope는 `10`(로그인사용자 정보조회) 또는 `35`(로그인사용자 신분목록조회) 사용가능
 ## Author
 
