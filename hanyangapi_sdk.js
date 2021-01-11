@@ -14,44 +14,6 @@ github.com/viewframer
 * 개발자센터 [마이앱-앱관리] 표시정보를 아래 [등록정보]에 입력하셔야 정상작동합니다.
   사용승인절차 등 API 관련 정보는 '한양대학교API 개발자센터'를 참조해 주세요.
   https://api.hanyang.ac.kr/
-================================================================
-[소개]
-
-- 한양대학교 Open API '사용자인증'기능을 Node.js에서 호출하는 비공식 SDK입니다.
-
-- 한양대학교 API 개발자센터에서는 Node.js SDK를 제공하지 않는 관계로,
-  공식제공되는 PHP SDK를 참조하여 새로 작성하였습니다.
-
-- OAuth2 흐름에서 서버로 전송된 Authorization Code를 본 SDK의
-  hanyangApiRun함수에 패러미터로 넣고 실행하면, 나머지 과정은 자동으로 진행됩니다.
-
-- 본 SDK는 외부개발자에게 승인되는 '사용자인증'에 한해 기능이 구현되어 있습니다.
-  (로그인사용자 정보조회 Scope : 10, 로그인사용자 신분목록 Scope : 35)
-
-- examplerunner.js 파일에서 실행 및 결과예제를 확인하실 수 있습니다.
-================================================================
-[구동흐름]
-
-(1)먼저 Node.js서버에서 웹사이트 방문자를 한양대 로그인폼으로 Redirect합니다.
-   * 아래 URL 예제 참조
-
-(2)사용자가 로그인에 성공할 경우, 한양대에서는 개발자센터에 등록된 URL에
-   Authorization Code를 querystring으로 담아 사용자를 다시 Redirect합니다.
-
-(3)Node.js서버에서 querystring을 parsing합니다. Authorization Code를
-   본 SDK의 hanyangApiRun함수의 패러미터로 삽입해 해당 함수를 구동합니다.
-
-(4)이후의 Access Token 요청, (한양대에서 추가로 요구하는) AES-256 암호화는
-   자동으로 진행되며, 인증에 성공하면 사용자 정보가 return됩니다.
-
-[로그인폼 Redirect URL 예제]
-https://api.hanyang.ac.kr/oauth/authorize?
-client_id=당신의클라이언트아이디&
-response_type=code&
-redirect_uri=당신의리다이렉트주소&
-scope=10
-
-* scope는 10(로그인사용자 정보조회) 또는 35(로그인사용자 신분목록조회) 사용가능
 ================================================================*/
 
 //[등록정보] 본인이 개발자센터에 등록한 API client정보

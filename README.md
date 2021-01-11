@@ -4,7 +4,7 @@ Hanyang University API - Node.js SDK
 - 한양대학교 Open API '사용자인증'기능을 Node.js에서 호출하는 비공식 SDK입니다.
 
 - 한양대학교 API 개발자센터에서 Node.js SDK를 제공하지 않는 관계로,
-  공식제공되는 PHP SDK를 참조하여 새로 작성하였습니다.
+  공식제공되는 PHP SDK를 참고하여 옮겨 작성한 파일입니다.
 - 사용승인절차 등 API 관련 정보는 '한양대학교API 개발자센터'를 참조해 주세요.
   - 학생개발자의 경우, 사용승인시 부서책임자 또는 지도교수의 서명이 필요합니다.
   - https://api.hanyang.ac.kr/
@@ -48,8 +48,8 @@ hanyangApiRun(receivedAuthCodeExample)
 ![user_login_form](./img/user_login_form.png)
 - 사용자가 로그인 후 정보제공에 동의하면 Authorization Code가 Redirect URL로 전송됩니다.
 - 로그인폼 Redirect URL 예제
-  - https://api.hanyang.ac.kr/oauth/authorize?client_id=`당신의클라이언트아이디`&response_type=code&redirect_uri=`당신의리다이렉트주소`&scope=`10`
-    -  scope는 `10`(로그인사용자 정보조회) 또는 `35`(로그인사용자 신분목록조회) 사용가능
+  - `https://api.hanyang.ac.kr/oauth/authorize?client_id=당신의클라이언트아이디&response_type=code&redirect_uri=당신의리다이렉트주소&scope=10`
+    -  `scope`는 `10`(로그인사용자 정보조회) 또는 `35`(로그인사용자 신분목록조회) 사용가능
   
 ## 서버가 얻는 인증정보
 ``` js
@@ -69,22 +69,16 @@ hanyangApiRun(receivedAuthCodeExample)
 }
 ```
 
-## 작동흐름
-1. 먼저 Node.js서버에서 웹사이트 방문자를 한양대 로그인폼으로 Redirect합니다.
+## Description
+1. 먼저 Node.js서버에서 웹사이트 방문자를 한양대서버 로그인폼으로 Redirect합니다.
    * 아래 URL 예제 참조
 
-2. 사용자가 로그인에 성공할 경우, 한양대에서는 개발자센터에 등록된 URL에
-   Authorization Code를 querystring으로 담아 사용자를 다시 Redirect합니다.
+2. 사용자가 로그인에 성공할 경우, 한양대서버에서는 개발자센터에 등록된 Redirect URL에 Authorization Code를 querystring으로 담아 사용자를 다시 Node.js서버로 Redirect합니다.
 
-3. Node.js서버에서 querystring을 parsing합니다. Authorization Code를
-   본 SDK의 `hanyangApiRun`함수의 패러미터로 삽입해 해당 함수를 구동합니다.
+3. Node.js서버에서는 URL에서 Authorization Code를 parsing하고, SDK의 `hanyangApiRun`함수의 패러미터로 삽입해 해당 함수를 구동합니다.
 
-4. 이후의 Access Token 요청, (한양대에서 요구하는) AES-256 암호화는
-   자동으로 진행되며, 인증에 모두 성공하면 사용자 정보가 Return됩니다.
- 
-* 로그인폼 Redirect URL 예제
-  * `https://api.hanyang.ac.kr/oauth/authorize?client_id=당신의클라이언트아이디&response_type=code&redirect_uri=당신의리다이렉트주소&scope=10`
-    * scope는 `10`(로그인사용자 정보조회) 또는 `35`(로그인사용자 신분목록조회) 사용가능
+4. 이후의 Access Token 요청, (한양대에서 요구하는) AES-256 암호화는 자동으로 진행되며, 인증에 모두 성공하면 사용자 정보가 Return됩니다.
+
 ## Author
 
 - 성시호
