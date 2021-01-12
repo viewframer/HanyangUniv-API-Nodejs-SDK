@@ -175,7 +175,7 @@ module.exports = hanyangApiRun;
 /*
 [활용예제코드]
 - hanyangApiRun 함수를 불러올 js파일에 아래와 같이 작성해 보세요.
-- 이 SDK에서는 runner.js파일에 동일한 내용이 작성되어 있습니다. */
+- 이 SDK에서는 example.js파일에 동일한 내용이 작성되어 있습니다. */
 
 /*
 const hanyangApiRun = require('./promise-myapi');
