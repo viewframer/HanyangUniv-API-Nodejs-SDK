@@ -178,7 +178,7 @@ module.exports = hanyangApiRun;
 - 이 SDK에서는 example.js파일에 동일한 내용이 작성되어 있습니다. */
 
 /*
-const hanyangApiRun = require('./promise-myapi');
+const hanyangApiRun = require('./hanyangapi_sdk');
 let receivedAuthCodeExample = 'fe7322c2ec3c1a0c5926ee86f10f5'; //이 authCode는 예시입니다. 실제로 구동되지 않습니다.
 
 hanyangApiRun(receivedAuthCodeExample)
