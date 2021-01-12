@@ -72,7 +72,7 @@ scope=10
 ```
 
 - 한양대 인증서버에서 로그인 성공 후 유저를 다시 Redirect하는 URL
-  - 결과적으로 Node.js서버가 전송하는 HTTP GET요청을 받게 됨  
+  - 결과적으로 Node.js서버는 유저가 전송하는 HTTP GET요청을 받게 됨  
 ```
 http://인증코드를되돌려받을리다이렉트주소?
 code=8143ee33fe0a3d3dd85d08935d6314
@@ -101,7 +101,7 @@ router.get('/auth', (req, res) => {
     hanyangApiRun(authCode)
     .then(hyuResponse => {
         userAuth = hyuResponse
-        
+
         res.locals.college = userAuth.daehakNm // 단과대
         res.locals.fullInfo = userAuth.sosokNm // 소속정보
         res.locals.idNum = userAuth.gaeinNo // 학번
